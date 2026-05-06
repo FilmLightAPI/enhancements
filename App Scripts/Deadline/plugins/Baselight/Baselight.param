@@ -1,0 +1,17 @@
+[About]
+Type=Label
+Label=About
+Category=About Plugin
+CategoryOrder=-1
+Index=0
+Default=FilmLight Baselight Plugin for Deadline
+Description=Not configurable
+
+[ConcurrentTasks]
+Type=Label
+Label=ConcurrentTasks
+Category=About Plugin
+CategoryOrder=-1
+Index=0
+Default=False
+Description=Not configurable

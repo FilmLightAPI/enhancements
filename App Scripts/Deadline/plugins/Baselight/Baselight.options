@@ -1,0 +1,9 @@
+[ScenePath]
+Type=String
+Label=Scene
+Category=Render Settings
+CategoryOrder=1
+Index=0
+Description=Scene to render in "Host:Job:Scene" format
+Required=true
+DisableIfBlank=false
