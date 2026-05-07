@@ -2,7 +2,7 @@
 
 Copy Shot or Timeline marks from one scene to another.
 
-![Screenshot](copy-marks-1.jpg)
+![Screenshot](screenshot-1.jpg)
 
 ## How To Use
 

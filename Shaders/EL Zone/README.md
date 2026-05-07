@@ -2,7 +2,7 @@
 
 Generate a false-color image using the EL Zone System
 
-![Screenshot](screenshots-1.jpg)
+![Screenshot](screenshot-1.jpg)
 
 ## Installation
 
