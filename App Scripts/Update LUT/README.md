@@ -12,4 +12,4 @@ Place `updatelut.py` into the */vol/.support/scripts* folder which is the same a
 - **Linux:** /usr/fl/scripts
 - **MacOS:** /Library/Application Support/FilmLight/scripts
 
-Restart Baselight or select *Views > Scripts > <span style="display:inline-block; vertical-align: middle;">![Gear](/gear.png)</span> > Reload Scripts…* to load.
+Restart Baselight or select *Views > Scripts > <span style="display:inline-block; vertical-align: middle;">![Gear](../gear.png)</span> > Reload Scripts…* to load.
