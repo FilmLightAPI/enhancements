@@ -10,7 +10,7 @@ Basic FLAPI examples for Baselight/Daylight GUI writen in Python
 - **menu_object.py** Creates MenuItems with counters that increment when clicked
 - **message_dialog_on_application_signal.py** Displays a MessageDialog whenever a scene is opened
 - **nested_menu_items.py** An example of nested menus
-- **progress_bar.py** Displays a ProgressBar tiggered by a MenuItem
+- **progress_bar.py** Displays a ProgressBar triggered by a MenuItem
 
 ## Installation
 

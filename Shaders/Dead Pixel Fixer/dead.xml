@@ -1,0 +1,63 @@
+<ShaderNodePreset Name="Pixel Fixer" SupportsAction="False" SupportsTransition="False" SupportsTimeline="True" MatteProvider="False" TimelineUseBack="True" ShaderType="Matchbox" SoftwareVersion="2016.0.0" Description="This preset fixes dead pixels" SupportsAdaptiveDegradation="False" LimitInputsToTexture="True">
+   <Shader OutputBitDepth="Output" Index="1">
+
+	   //position
+       <Uniform Name="Position01" Type="vec2" DisplayName="Position 1" Page="0" Col="0" Row="0" Tooltip="" Inc="0.0005" ValueType="Position" IconType="Pick">
+          <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.4">
+          </SubUniform>
+          <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.6">
+          </SubUniform>
+       </Uniform>
+ 
+	   
+	   //Cursor
+	   <Uniform Row="3" Col="0" Page="0" Default="True" Tooltip="" DisplayName="Cross" Type="bool" Name="cross01">
+	   </Uniform>
+
+	   <Uniform Name="Colour01" Type="vec3" DisplayName="Colour 1" Page="0" Col="0" Row="4" Tooltip="" Inc="0.01" ValueType="Colour">
+		   <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.5">
+		   </SubUniform>
+		   <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.18">
+		   </SubUniform>
+		   <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.5">
+		   </SubUniform>
+	   </Uniform>
+	   
+	   
+	   
+ 	   //Fix01
+       <Uniform Default="3" Tooltip="" Row="0" Col="1" Page="0" DisplayName="Fill" Type="int" Name="fill01" ValueType="Popup">
+          <PopupEntry Title="None" Value="0">
+          </PopupEntry>
+          <PopupEntry Title="Hor" Value="1">
+          </PopupEntry>
+          <PopupEntry Title="Vert" Value="2">
+          </PopupEntry>      
+          <PopupEntry Title="Both" Value="3">
+          </PopupEntry>         
+       </Uniform>
+	   
+       <Uniform ResDependent="None" Max="20.0" Min="0.0" Default="4.0" Inc="1.0" Tooltip="" Row="1" Col="1" Page="0" DisplayName="width x" Type="float" Name="fixWidth01">
+       </Uniform>
+       <Uniform ResDependent="None" Max="20.0" Min="0.0" Default="4.0" Inc="1.0" Tooltip="" Row="2" Col="1" Page="0" DisplayName="width y" Type="float" Name="fixHeight01">
+       </Uniform>
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+       <Uniform Index="0" NoInput="Error" Tooltip="" DisplayName="input1" Mipmaps="False" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR" Type="sampler2D" Name="input1">
+      </Uniform>
+   </Shader>
+   
+   
+   <Page Page="0" Name="Variables">
+      <Col Page="0" Col="0" Name="Dead Pixel 01">
+      </Col>
+      <Col Page="0" Col="1" Name="Fix 01">
+      </Col>
+   </Page>
+</ShaderNodePreset>
