@@ -10,9 +10,9 @@ For a user-friendly browsing experience, visit:
 
 To contribute, please submit a Pull Request to the GitHub repository.
 
-* Fork the Repository: Create a fork of the enhancements GitHub repository
+1. Fork the Repository: Create a fork of the enhancements GitHub repository
 
-* Add Your Content: Create a new sub-folder with the name of your enhancement. Inside that folder, you must include a `README.md` file. You can optionally include a `icon.png` file for the icon on the main page. It should be a square PNG (e.g. 128 x 128 or 64 x 64 pixels)
+2. Add Your Content: Create a new sub-folder with the name of your enhancement. Inside that folder, you must include a `README.md` file. You can optionally include a `icon.png` file for the icon on the main page. It should be a square PNG (e.g. 128 x 128 or 64 x 64 pixels)
 
     README format:
     - The first line of the README should be a a first-level heading with the name of your enhancemnt
@@ -28,9 +28,9 @@ A helpful tool for colourists.
 
 ![Screenshot](screenshot-1.jpg)
 
- ## How to use
+## How to use
 
 Just select "Colourist Help" from the Scene menu.
 ```
 
-* Submit a Pull Request: Once your changes are ready, submit a Pull Request. We will review your submission and merge it into the directory.
+3. Submit a Pull Request: Once your changes are ready, submit a Pull Request. We will review your submission and merge it into the directory.

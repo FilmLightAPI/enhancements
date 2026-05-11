@@ -1,0 +1,32 @@
+<ShaderNodePreset
+  SupportsAdaptiveDegradation="False"
+  LimitInputsToTexture="True"
+  MatteProvider="True"
+  Description="Apply Gain/Gamma to Sat in HSV"
+  Name="HSV Dark Saturation">
+   <Shader OutputBitDepth="Output" Index="1">
+      <Uniform
+        Index="0"
+        NoInput="Error"
+        Tooltip=""
+        DisplayName="Source"
+        Mipmaps="False"
+        GL_TEXTURE_MAG_FILTER="GL_LINEAR"
+        GL_TEXTURE_MIN_FILTER="GL_LINEAR"
+        Type="sampler2D"
+        Name="source">
+      </Uniform>
+       
+      <Uniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0" Inc="0.0001" Tooltip="" Row="0" Col="0" Page="0" DisplayName="Saturation Gain" Type="float" Name="gain">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0" Inc="0.0001" Tooltip="" Row="1" Col="0" Page="0" DisplayName="Saturation Gamma" Type="float" Name="gamma">
+      </Uniform>
+
+   </Shader>  
+   <Page Name="Controls" Page="0">
+      <Col Name="" Col="0" Page="0">
+      </Col>
+   </Page>
+</ShaderNodePreset>
+
