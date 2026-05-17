@@ -1,5 +1,4 @@
 import flapi
-import time
 import sys
 
 if len(sys.argv) < 2:

@@ -1,6 +1,5 @@
 import flapi
 import time
-from datetime import datetime
 
 #
 # Define a dialog class which uses DynamicDialog to present a dialog to the user.

@@ -1,5 +1,4 @@
 import flapi
-import time
 import sys
 
 # Connect to  FLAPI
@@ -11,7 +10,7 @@ except flapi.FLAPIException as ex:
     sys.exit(1)
 
 if len(sys.argv) < 3:
-    print( "Scene and Look not specified" );
+    print( "Scene and Look not specified" )
     print( "Usage: %s host:job:scene look_name " % sys.argv[0] )
     print("")
     print("Available looks (look group in brackets):")

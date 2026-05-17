@@ -6,7 +6,7 @@ import time
 def waitForExportToComplete( qm, exportInfo ):
     for msg in exportInfo.Log:
         if (msg.startswith("Error")):
-            print("Export Submission Failed.  %s" % msg);
+            print("Export Submission Failed.  %s" % msg)
             return
 
     print( "Waiting on render job to complete" )

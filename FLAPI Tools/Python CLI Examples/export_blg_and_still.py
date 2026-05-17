@@ -6,7 +6,7 @@ import time
 def waitForExportToComplete( qm, exportInfo ):
     for msg in exportInfo.Log:
         if (msg.startswith("Error")):
-            print("Export Submission Failed.  %s" % msg);
+            print("Export Submission Failed.  %s" % msg)
             return
 
     print( "Waiting on render job to complete" )
@@ -89,7 +89,7 @@ if nshots > 0:
         
             # Get Shot object for shot with the given ID
             shot = scene.get_shot(shot_inf.ShotId)
-            ex.select_shot(shot);
+            ex.select_shot(shot)
         
             # Release Shot object - commented out for now - it seems bad things happen if you release this too early.
             # shot.release()

@@ -1,10 +1,9 @@
 import flapi
-import time
 import sys
 import os
 
 if len(sys.argv) < 4:
-    print( "Absolute_blg_input_path, absolute_resources_output_path and/or absolute_payload_output_path not specified" );
+    print( "Absolute_blg_input_path, absolute_resources_output_path and/or absolute_payload_output_path not specified" )
     print( "Usage: %s absolute_blg_input_path absolute_resources_output_path absolute_payload_output_path" % sys.argv[0] )
     exit(1)
 

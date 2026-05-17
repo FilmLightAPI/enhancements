@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import flapi
 import sys
 import time
@@ -22,9 +24,10 @@ except flapi.FLAPIException as ex:
     sys.exit(1) 
 
 # Create a temporary scene
+# The working format doesn't matter since we will render same as source with no format mapping
 sceneOptions = flapi.NewSceneOptions(
     format="HD 1920x1080",
-    colourspace="FilmLight_TLog_EGamut",
+    colourspace="ACES_lin",
     frame_rate=2.0
 )
 
@@ -57,7 +60,7 @@ deliverable.FileNamePostfix = ""
 deliverable.FileNameExtension = ".exr"
 deliverable.FileNameNumDigits = 7
 deliverable.FileNameNumber = flapi.RENDER_FRAMENUM_SHOT_FRAME
-deliverable.RenderFormat = "HD 1920x1080"
+deliverable.RenderFormat = flapi.RENDER_FORMAT_USEINPUT
 deliverable.RenderColourSpace = "ACES_lin"
 renderSetup.add_deliverable( deliverable )
 

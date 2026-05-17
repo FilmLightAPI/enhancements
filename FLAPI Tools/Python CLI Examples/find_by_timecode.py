@@ -7,8 +7,10 @@ endTC_str = None
 startTC = None
 endTC = None
 
-if len(sys.argv) >= 4:
+if len(sys.argv) >= 3:
     startTC_str = sys.argv[2]
+
+if len(sys.argv) >= 4:
     endTC_str = sys.argv[3]
 
 conn = flapi.Connection("localhost")
@@ -30,7 +32,7 @@ if endTC_str != None:
     try:
         endTC = conn.Utilities.timecode_from_string( endTC_str, 24 )
     except flapi.FLAPIException as exc:
-        print( "Cannot parse end timecode '%s': %s" % (endTC_Str, exc) )
+        print( "Cannot parse end timecode '%s': %s" % (endTC_str, exc) )
         sys.exit(1)
 
 print( "Searching for:" )

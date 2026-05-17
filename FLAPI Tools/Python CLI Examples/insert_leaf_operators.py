@@ -47,11 +47,11 @@ while (idx < len(sys.argv)):
     idx+=2
     shot = None
     if (op_type == "Bars"):
-        shot = scene.insert_bars(flapi.OPERATOR_BARS_TYPE_ITU2111_PQ, duration, flapi.INSERT_END, None, None);
+        shot = scene.insert_bars(flapi.OPERATOR_BARS_TYPE_ITU2111_PQ, duration, flapi.INSERT_END, None, None)
     elif (op_type == "Blank"):
-        shot = scene.insert_blank(0.9, 0.1, 0.1, duration, flapi.INSERT_END, None, None);
+        shot = scene.insert_blank(0.9, 0.1, 0.1, duration, flapi.INSERT_END, None, None)
     elif (op_type == "Text"):
-        shot = scene.insert_text("The quick brown fox", duration, flapi.INSERT_END, None);
+        shot = scene.insert_text("The quick brown fox", duration, flapi.INSERT_END, None)
 
     if (shot != None):
         shot.release()

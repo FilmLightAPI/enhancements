@@ -1,5 +1,4 @@
 import flapi
-import sys
 
 conn = flapi.Connection("localhost")
 

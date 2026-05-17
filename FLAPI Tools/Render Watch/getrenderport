@@ -1,0 +1,39 @@
+#!/usr/fl/baselight/bin/flici
+load("zeroconf");
+load("flmon");
+
+extern gas;
+extern zcresult;
+gas = gigl.appshell_create_cmdline();
+
+static
+add_host(args)
+{
+    if( int(args.hosttarget_is_local) == 1 && args.app == "render service" )
+    {
+        zcresult = args;
+        gas:gas_end_event_loop();
+    }
+}
+
+static
+remove_host(args)
+{
+}
+
+browser := zeroconf.browse("_flmon._tcp", add_host, remove_host, 100 );
+
+/* Wait up to 5 seconds to get the record we need */
+gas:gas_run_event_loop(1000);
+
+if( zcresult )
+{
+    wsport := flmon.flmon_send_msg( zcresult.hosttarget, int(zcresult.port), "rc_get_webserver_port");
+    if( int(wsport) > 25 )
+    {
+        printf( "{ \"pid\": %d, \"port\": %d }\n", int(zcresult.pid), int(wsport) );
+        exit(0);
+    }
+}
+
+exit(1);

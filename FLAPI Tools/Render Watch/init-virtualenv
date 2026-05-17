@@ -1,0 +1,13 @@
+#!/usr/fl/baselight/bin/flici
+
+/* This script will initialise the Python virtual environment */
+load("flapi"); 
+fp = flapi.FLAPI_Python:fp_create(
+    gigl.appshell_create_cmdline(), 
+    g3prefs.read_prefs(), 
+    "app", 
+    NULL
+); 
+fp:fp_start();
+fp:fp_stop();
+

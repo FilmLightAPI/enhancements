@@ -1,9 +1,8 @@
 import flapi
-import time
 import sys
 
 if len(sys.argv) < 3:
-    print( "Scene and blg_path not specified" );
+    print( "Scene and blg_path not specified" )
     print( "Usage: %s host:job:scene blg_path" % sys.argv[0] )
     exit(1)
 

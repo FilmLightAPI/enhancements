@@ -5,7 +5,7 @@ conn.connect()
 
 # Fetch factory-defined formats
 
-factoryFormats = conn.FormatSet.factory_formats();
+factoryFormats = conn.FormatSet.factory_formats()
 
 ########################################################
 # Get burnin in existing factory format

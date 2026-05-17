@@ -1,7 +1,6 @@
 # Makes a simple DynamicDialog tied to a MenuItem
 
 import flapi
-import time
 
 #
 # Define a dialog class which uses DynamicDialog to present a dialog to the user

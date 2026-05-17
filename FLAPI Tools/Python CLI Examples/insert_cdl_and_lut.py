@@ -1,9 +1,8 @@
 import flapi
-import time
 import sys
 
 if len(sys.argv) < 2:
-    print( "No scene specified" );
+    print( "No scene specified" )
     print( "Usage: %s host:job:scene [optional-path-to-lut]"  % sys.argv[0] )
     exit(1)
 
