@@ -11,6 +11,8 @@ Basic FLAPI examples for Baselight/Daylight GUI writen in Python
 - **message_dialog_on_application_signal.py** Displays a MessageDialog whenever a scene is opened
 - **nested_menu_items.py** An example of nested menus
 - **progress_bar.py** Displays a ProgressBar triggered by a MenuItem
+- **select_scene_and_open.py** shows a dialog with a scene picker, then opens the selected scene in the Baselight timeline (requires 7.0.1 or later).
+
 
 ## Installation
 
@@ -19,3 +21,7 @@ Place the script(s) you want to test into the */vol/.support/scripts* folder whi
 - **MacOS:** /Library/Application Support/FilmLight/scripts
 
 Restart Baselight or select *Views > Scripts > <span style="display:inline-block; vertical-align: middle;">![Gear](/web/gear.png)</span> > Reload Scripts…* to load.
+
+## Changelog
+
+May 18, 2026 - Added select_scene_and_open.py
