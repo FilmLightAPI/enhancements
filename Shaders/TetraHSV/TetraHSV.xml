@@ -1,0 +1,80 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" Description="
+  Tetrahedral Interpolation HSV" Name="Tetra HSV" >
+
+   <Shader OutputBitDepth="Output" Index="1">
+      <Uniform Index="0" NoInput="Error" Tooltip="" DisplayName="front" Mipmaps="False" Type="sampler2D" Name="front">
+      </Uniform>
+
+
+        <Uniform Inc="0.001" Row="0" Col="0" Page="0" IconType="None" Type="vec3" DisplayName="Red (Hue,Sat,Value)" Name="P_red">
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+        </Uniform>
+
+        <Uniform Inc="0.001" Row="1" Col="0" Page="0" IconType="None" Type="vec3" DisplayName="Green (Hue,Sat,Value)" Name="P_green">
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+        </Uniform>
+
+        <Uniform Inc="0.001" Row="2" Col="0" Page="0" IconType="None" Type="vec3" DisplayName="Blue (Hue,Sat,Value)" Name="P_blue">
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+        </Uniform>
+
+
+        <Uniform Inc="0.001" Row="0" Col="1" Page="0" IconType="None" Type="vec3" DisplayName="Cyan (Hue,Sat,Value)" Name="P_cyan">
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+        </Uniform>
+
+        <Uniform Inc="0.001" Row="1" Col="1" Page="0" IconType="None" Type="vec3" DisplayName="Magenta (Hue,Sat,Value)" Name="P_magenta">
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+        </Uniform>
+
+        <Uniform Inc="0.001" Row="2" Col="1" Page="0" IconType="None" Type="vec3" DisplayName="Yellow (Hue,Sat,Value)" Name="P_yellow">
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+            <SubUniform ResDependent="None" Max="1.0" Min="-1.0" Default="0.0">
+            </SubUniform>
+        </Uniform>
+
+
+      <Uniform ResDependent="None" Max="1.0" Min="-0.25" Default="0.0" Inc="0.001" Tooltip="" Row="3" Col="0" Page="0" DisplayName="Black" Type="float" Name="P_black">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="1.25" Min="0.0" Default="1.0" Inc="0.001" Tooltip="" Row="3" Col="1" Page="0" DisplayName="White" Type="float" Name="P_white">
+      </Uniform>
+ 
+   </Shader>
+
+    <Page Name="Page 1" Page="0">
+        <Col Name="RGB" Col="0" Page="0">
+        </Col>
+        <Col Name="CMY" Col="1" Page="0">
+        </Col>
+    </Page>
+
+</ShaderNodePreset>

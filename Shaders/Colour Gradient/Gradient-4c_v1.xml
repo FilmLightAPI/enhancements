@@ -1,0 +1,105 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" Description="Creates a gradient between 4 colours with configurable positions. Each colour can be positioned anywhere in the frame and toggled on/off.
+
+Interpolation Methods:
+- Linear: Simple linear interpolation between colours
+- Bilinear: Inverse distance weighted interpolation, good for arbitrary positions and amount of points
+- Smooth: Like linear but with smoother transitions and wider blend area between colours
+- Cubic: Smoother transitions with better edge behavior
+- Barycentric: Geometric interpolation using triangles
+- Harmonic: Natural-looking gradients using harmonic weights
+- Radial: Circular gradient from center point
+- Angular: Gradient following angle around center point
+
+Parameters:
+- Colours 1-4: Define the gradient colours
+- Positions 1-4: XY coordinates for each colour (0-1 range)
+- Enable 1-4: Toggle individual colours on/off
+- Center X/Y: Define center point for Radial and Angular modes
+- Steps: Quantize the interpolation (0 for smooth, up to 256 steps)" Name="Colour Gradient (4 colours) v1">
+   <Shader OutputBitDepth="Output" Index="1">
+      <Uniform ResDependent="None" Inc="0.01" Row="0" Col="0" Page="0" DisplayName="Colour 1" ValueType="Colour" Type="vec3" Name="color3">
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.4"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.4"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.57"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Inc="0.01" Tooltip="Position for Colour 1 (normalized coordinates)" Row="1" Col="0" Page="0" DisplayName="Position 1" Type="vec2" Name="pos3">
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="1.0"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="True" Tooltip="Toggle Colour 1" Row="2" Col="0" Page="0" DisplayName="Enable 1" Type="bool" Name="enable1">
+      </Uniform>
+
+      <Uniform ResDependent="None" Inc="0.01" Row="0" Col="1" Page="0" DisplayName="Colour 2" ValueType="Colour" Type="vec3" Name="color4">
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.6"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.6"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.45"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Inc="0.01" Tooltip="Position for Colour 2 (normalized coordinates)" Row="1" Col="1" Page="0" DisplayName="Position 2" Type="vec2" Name="pos4">
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="1.0"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="True" Tooltip="Toggle Colour 2" Row="2" Col="1" Page="0" DisplayName="Enable 2" Type="bool" Name="enable2">
+      </Uniform>
+
+      <Uniform ResDependent="None" Inc="0.01" Row="3" Col="0" Page="0" DisplayName="Colour 3" ValueType="Colour" Type="vec3" Name="color1">
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.54"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.36"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.36"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Inc="0.01" Tooltip="Position for Colour 3 (normalized coordinates)" Row="4" Col="0" Page="0" DisplayName="Position 3" Type="vec2" Name="pos1">
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.0"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="True" Tooltip="Toggle Colour 3" Row="5" Col="0" Page="0" DisplayName="Enable 3" Type="bool" Name="enable3">
+      </Uniform>
+
+      <Uniform ResDependent="None" Inc="0.01" Row="3" Col="1" Page="0" DisplayName="Colour 4" ValueType="Colour" Type="vec3" Name="color2">
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.5"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.58"></SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.42"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Inc="0.01" Tooltip="Position for Colour 4 (normalized coordinates)" Row="4" Col="1" Page="0" DisplayName="Position 4" Type="vec2" Name="pos2">
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1.0" Min="0.0" Default="0.0"></SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="True" Tooltip="Toggle Colour 4" Row="5" Col="1" Page="0" DisplayName="Enable 4" Type="bool" Name="enable4">
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="1" Tooltip="Interpolation method between colours" Row="6" Col="0" Page="0" DisplayName="Interpolation" Type="int" Name="interpolation" ValueType="Popup">
+        <PopupEntry Title="Linear" Value="0">
+        </PopupEntry>
+        <PopupEntry Title="Bilinear" Value="1">
+        </PopupEntry>
+        <PopupEntry Title="Smooth" Value="2">
+        </PopupEntry>
+        <PopupEntry Title="Cubic" Value="5">
+        </PopupEntry>
+        <PopupEntry Title="Barycentric" Value="6">
+        </PopupEntry>
+        <PopupEntry Title="Harmonic" Value="7">
+        </PopupEntry>
+        <PopupEntry Title="Radial" Value="3">
+        </PopupEntry>
+        <PopupEntry Title="Angular" Value="4">
+        </PopupEntry>
+      </Uniform>
+      
+      <Uniform ResDependent="None" Default="0.5" Min="0.0" Max="1.0" Inc="0.01" Tooltip="Center point X position" Row="7" Col="0" Page="0" DisplayName="Center X" Type="float" Name="centerX">
+      </Uniform>
+      
+      <Uniform ResDependent="None" Default="0.5" Min="0.0" Max="1.0" Inc="0.01" Tooltip="Center point Y position" Row="7" Col="1" Page="0" DisplayName="Center Y" Type="float" Name="centerY">
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="0" Min="0" Max="256" Inc="1" Tooltip="Number of steps (0 for smooth)" Row="6" Col="1" Page="0" DisplayName="Steps" Type="int" Name="steps">
+      </Uniform>
+   </Shader>
+</ShaderNodePreset>
+
