@@ -1,4 +1,4 @@
-# RemoveZeroPadding
+# Remove Zero Padding
 
 Remove leading '0's from Scene and Take metadata.
 
