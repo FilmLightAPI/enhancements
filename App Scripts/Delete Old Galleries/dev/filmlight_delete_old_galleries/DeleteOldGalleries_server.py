@@ -161,7 +161,7 @@ class DOGRun:
                 dt = datetime.strptime(scene_info.ModifiedDate, "%Y-%m-%d %H:%M")
                 if dt < self.cutoff:
                     self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_INFO, "Deleting scene", f"{scenename}" )
-                    # self.conn.JobManager.delete_scene(host, job, scenename, 1)
+                    self.conn.JobManager.delete_scene(self.host, self.job, scenename, 1)
                     self.deleted_scenes += 1
                 else:
                     # print(f"keeping: {scenename} {dt}")
@@ -186,7 +186,7 @@ class DOGRun:
                 folders = self.conn.JobManager.get_folders(self.host, self.job, folder)
                 if len(scenes) == 0 and len(folders) == 0:
                     self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_INFO, "Deleting empty folder", f"{folder}" )
-                    # self.conn.JobManager.delete_folder(host, job, folder)
+                    self.conn.JobManager.delete_folder(self.host, self.job, folder)
                     self.deleted_folders += 1
             except Exception as ex:
                 self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_WARN, f"Unable to process folder: {folder}", f"{ex}")
@@ -214,7 +214,7 @@ class DOGRun:
             result = subprocess.run(f"bl-lsscenes {self.host}:{self.job} | wc -l", shell=True, capture_output=True, text=True, check=True)
             self.total_scenes = int(result.stdout.strip())
             self.scene_count = 0 
-            self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_INFO, f"Checking {self.total_scenes} scenes", "" )
+            self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_INFO, "Summary", f"Checking {self.total_scenes} scenes" )
         except Exception as ex:
             self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_FAIL, "Failed counting number of scenes in gallery", f"{ex}" )
             self.qm.set_task_failed( self.task.ID, self.task.Seq, "Error", "Failed counting number of scenes in gallery" )
@@ -226,7 +226,7 @@ class DOGRun:
         self.progress_timer = time.time()
         self.check_folder("")
         
-        self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_INFO, f"Deleted {self.deleted_scenes} scenes and {self.deleted_folders} folders.", "" )
+        self.qm.add_operation_log( self.opid, flapi.QUEUELOGTYPE_INFO, "Summary", f"Deleted {self.deleted_scenes} scenes and {self.deleted_folders} folders." )
         self.qm.set_task_done( self.task.ID, self.task.Seq, f"Done with {self.task.Desc}" )
         self.state = OpState.DONE
 

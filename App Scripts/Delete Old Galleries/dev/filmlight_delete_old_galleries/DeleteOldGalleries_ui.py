@@ -29,17 +29,17 @@ class MainDialog:
 
         self.items = [
             flapi.DialogItem(
-                Key="StaticText",
-                Label="",
-                Type=flapi.DIT_STATIC_TEXT,
-                Default="Delete galleries last modified before",
+                Key = "StaticText",
+                Label = "",
+                Type = flapi.DIT_STATIC_TEXT,
+                Default = "Delete galleries last modified before:",
             ),
             flapi.DialogItem(
-                Key="Month",
-                Label="Month",
-                Type=flapi.DIT_DROPDOWN,
-                Options=self.options,
-                Default=self.options[0]["Key"],
+                Key = "Month",
+                Label = "Month",
+                Type = flapi.DIT_DROPDOWN,
+                Options = self.options,
+                Default = self.options[0]["Key"],
             ),
             flapi.DialogItem(
                 Key="Year",
@@ -49,6 +49,25 @@ class MainDialog:
                 IntMax=2999,
                 Default=2025,
             ),
+            flapi.DialogItem(
+                Key = "Spacer",
+                Label = "",
+                Type = flapi.DIT_STATIC_TEXT,
+                Default = " ",
+            ),
+            flapi.DialogItem(
+                Key = "Warning1",
+                Label = "",
+                Type = flapi.DIT_STATIC_TEXT,
+                Default = "Deleting galleries can not be undone!",
+                Style = "emp"
+            ),
+            flapi.DialogItem(
+                Key = "Warning2",
+                Label = "",
+                Type = flapi.DIT_STATIC_TEXT,
+                Default = "Automatic database backups will also be lost after 7 days.",
+            ), 
         ]
 
         # Create dialog, which will be shown later

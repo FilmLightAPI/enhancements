@@ -4,6 +4,8 @@ Delete old gallery scenes from the job database (based on modified date)
 
 ![Screenshot](screenshot-1.jpg)
 
+The processing can be very slow for large jobs, so work is done in the backgroud and managed via the Queue Monitor.
+
 ## How To Use
 
 Select *Delete Old Galleries* from under the main *Baselight* menu.
@@ -20,7 +22,7 @@ Rather than using the package, you can install the files manually:
 - **DeleteOldGalleries_ui.py** into /vol/.support/scripts/
 - **DeleteOldGalleries_server.py** into /vol/.support/server-scripts/
 
-You may have to create the folders if they don't exist. Add a line to the bottom of each file:
+You may have to create the folders if they don't exist. Outside of the package, the objects will need to be initalized by adding a line to the bottom of each file:
 
 - DeleteOldGalleries_ui.py
 ```
