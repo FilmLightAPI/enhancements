@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools >= 59.6"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="filmlight_delete_old_galleries"
+version="1.0.0"
+description="Delete Old Galleries for Baselight and Daylight"
+readme="README.md"
+dependencies=[
+    "importlib_metadata; python_version < '3.8'",
+    "requests",
+    "requests_unixsocket; python_version <= '3.6'",
+    "requests_unixsocket2; python_version >= '3.9'",
+    "urllib3",
+]
+requires-python=">= 3.6"
+authors=[
+    { name="FilmLight Ltd.", email="baselight-support@filmlight.ltd.uk" }
+]
+
+[project.entry-points."flapi.app"]
+DeleteOldGalleries-ui="filmlight_delete_old_galleries:app"
+
+[project.entry-points."flapi.server"]
+DeleteOldGalleries-server="filmlight_delete_old_galleries:server"
