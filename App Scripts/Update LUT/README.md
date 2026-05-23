@@ -5,6 +5,7 @@ Apply a LUT to all shots in a scene on a specific layer.
 ## How To Use
 
 There is currently no UI, the name of the LUT and the layer you want to apply it on can be changed by editing the "LUT_NAME" and "LUT_LAYER_NUM" variables in the script.
+Access by selecting **Update LUTs** from the main **Scene** menu.
 
 ## Installation
 

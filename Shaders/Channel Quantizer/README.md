@@ -4,6 +4,7 @@ Quantize in Hue, Saturation, Value, and/or Chroma
 
 This shader reduces the number of steps, introducing posterization in several channels.
 For all channels except Value watch the Vectorscope / Chromaticity view to understand the behaviour.
+
 ![Screenshot](screenshot-1.jpg)
 
 ## Installation

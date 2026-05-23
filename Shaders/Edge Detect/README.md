@@ -2,7 +2,7 @@
 
 Generate a matte that highlights the contours in an image
 
-It can be used for numerous effects, such as halation, blooming and adding or subtracting color fringing.
+It can be used for numerous effects such as halation, blooming, and adding or subtracting color fringing.
 
 ![Screenshot](screenshot-1.jpg)
 

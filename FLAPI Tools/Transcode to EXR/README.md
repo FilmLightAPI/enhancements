@@ -6,7 +6,7 @@ This is an example of transcoding with a temporary scene in memory (no need to c
  
 ## How To Use
 
-Ensure the FLAPI module is part of your Python enviroment (see [FLAPI documnetation](https://www.filmlight.ltd.uk/support/documents/filmlightapi/docs_api.php)). It teminal run:
+Ensure the FLAPI module is part of your Python enviroment (see [FLAPI documnetation](https://www.filmlight.ltd.uk/support/documents/filmlightapi/docs_api.php)). In teminal run:
 
 `transcode_to_exr <path-to-source-movie> <dest-folder>`
 

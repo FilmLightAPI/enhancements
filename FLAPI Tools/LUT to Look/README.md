@@ -28,4 +28,20 @@ brew install python3-tk
 sudo python3 -m pip install tkinterdnd2
 ````
 
-Then run `python3 lut_to_look.py`
+For testing, run it with
+
+```
+python3 lut_to_look.py
+```
+
+To re-compile as an app, run
+
+```
+pyinstaller --onefile -w lut_to_look.py
+```
+
+Linux may require using the -add-data flag to compile:
+
+```
+pyinstaller --add-data /usr/local/lib/python3.6/site-packages/tkinterdnd2:tkinterdnd2 --onefile -w lut_to_look.py
+```
