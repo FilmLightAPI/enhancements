@@ -1,0 +1,49 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" Description="
+Clamps the image based on 10-bit code values.
+
+Model:
+- Y only - YCbCr: Clamps only the Luma channel (preserves color).
+- RGB: Clamps all RGB channels directly.
+
+Settings:
+- Matrix: Select conversion matrix (only used in YCbCr mode).
+- Low/High Clamp: Thresholds in 10-bit integer units (0-1023).
+- Global Clamp: Enable/disable the effect.
+- Preview Clamp: Highlights clamped areas (Orange/Magenta).
+" Name="YCbCr Y-Clamp">
+   <Shader OutputBitDepth="Output" Index="1">
+      <Uniform Index="0" NoInput="Error" Tooltip="" DisplayName="front" Mipmaps="False" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR" Type="sampler2D" Name="front">
+      </Uniform>
+
+      <Uniform Row="0" Col="0" Page="0" Default="0" Tooltip="Select the clamping model" Type="int" DisplayName="Model" Name="model_type" ValueType="Popup">
+         <PopupEntry Title="Y only - YCbCr" Value="0">
+         </PopupEntry>
+         <PopupEntry Title="RGB" Value="1">
+         </PopupEntry>
+      </Uniform>
+
+      <Uniform Row="1" Col="0" Page="0" Default="0" Tooltip="Select the RGB to YCbCr conversion matrix" Type="int" DisplayName="Matrix" Name="matrix_type" ValueType="Popup">
+         <PopupEntry Title="BT.709" Value="0">
+         </PopupEntry>
+         <PopupEntry Title="BT.2020" Value="1">
+         </PopupEntry>
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="1023" Min="0" Default="64" Inc="1" Tooltip="Lower clamp value (10-bit integer: 0-1023)" Row="2" Col="0" Page="0" DisplayName="Low Clamp (10-bit)" Type="int" Name="clamp_low_10bit">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="1023" Min="0" Default="940" Inc="1" Tooltip="Upper clamp value (10-bit integer: 0-1023)" Row="3" Col="0" Page="0" DisplayName="High Clamp (10-bit)" Type="int" Name="clamp_high_10bit">
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="True" Tooltip="Enable the clamping" Row="4" Col="0" Page="0" DisplayName="Global Clamp" Type="bool" Name="enable_clamp">
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="False" Tooltip="Highlight clamped highlights in orange and shadows in magenta" Row="5" Col="0" Page="0" DisplayName="Preview Clamp" Type="bool" Name="enable_preview">
+      </Uniform>
+   </Shader>
+   
+   <Page Name="YCbCr Clamp" Page="0">
+      <Col Name="Settings" Col="0" Page="0">
+      </Col>
+   </Page>
+</ShaderNodePreset>
