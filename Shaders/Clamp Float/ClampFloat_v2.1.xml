@@ -1,0 +1,39 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" Description="
+Clamp to specified float values. You need to convert into the clamping space manually with a 'Colour Space' operator. AndyM 2022-03-29" Name="Clamp float v2.1">
+
+   <Shader OutputBitDepth="Output" Index="1">
+      <Uniform Index="0" NoInput="Error" Tooltip="" DisplayName="front" Mipmaps="False" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST" Type="sampler2D" Name="front">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="65504.0" Min="-65504.0" Default="-65504.0" Inc="0.00001" Tooltip="" Row="0" Col="0" Page="0" DisplayName="Lower Limit" Type="float" Name="limL">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="65504.0" Min="-65504.0" Default="65504.0" Inc="0.001" Tooltip="" Row="1" Col="0" Page="0" DisplayName="Upper Limit" Type="float" Name="limU">
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="True" Tooltip="" Row="2" Col="0" Page="0" DisplayName="Clamp" Type="bool" Name="clamping">
+      </Uniform>
+
+      <Uniform Inc="0.01" Tooltip="" Row="0" Col="1" Page="0" DisplayName="Alarm Tint - Lower Limit" ValueType="Colour" Type="vec3" Name="tint_low">
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.3">
+         </SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.6">
+         </SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.3">
+         </SubUniform>
+      </Uniform>
+
+      <Uniform Inc="0.01" Tooltip="" Row="1" Col="1" Page="0" DisplayName="Alarm Tint - Upper Limit" ValueType="Colour" Type="vec3" Name="tint_up">
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.6">
+         </SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.1">
+         </SubUniform>
+         <SubUniform ResDependent="None" Max="100.0" Min="-100.0" Default="0.1">
+         </SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Default="False" Tooltip="" Row="2" Col="1" Page="0" DisplayName="Clamp Alarm" Type="bool" Name="preview">
+      </Uniform>
+
+   </Shader>
+</ShaderNodePreset>
