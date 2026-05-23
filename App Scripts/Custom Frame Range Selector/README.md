@@ -1,4 +1,4 @@
-# Custom Frange Range Selector
+# Custom Frame Range Selector
 
 Select multiple short frame ranges for rendering reference clips.
 
@@ -6,7 +6,8 @@ This script generates a list of frame ranges for selected shots that can be past
 It is useful for rendering short segments of a project to give a quick overview of the grade and its consistency.
 
 Video Tutorial:
-<video src='https://media.githubusercontent.com/media/FilmLightAPI/enhancements/refs/heads/main/App%20Scripts/Custom%20Frame%20Range%20Selector/Custom%20Frame%20Range%20Selector.mp4'>
+
+[Video](https://media.githubusercontent.com/media/FilmLightAPI/enhancements/refs/heads/main/App%20Scripts/Custom%20Frame%20Range%20Selector/Custom%20Frame%20Range%20Selector.mp4)
 
 ## How To Use
 
