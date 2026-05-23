@@ -1,0 +1,53 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" Description="
+  This shader reduces the number of steps in several channels.
+  For all channels except Value watch the Vectorscope / Chromaticity view to understand the behaviour.
+  20230221 AndyM"
+  Name="Channel Quantizer v2">
+
+   <Shader OutputBitDepth="Output" Index="1">
+      <Uniform Index="0" NoInput="Error" Tooltip="" DisplayName="front" Mipmaps="False" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST" Type="sampler2D" Name="front">
+      </Uniform>
+
+
+      <Uniform ResDependent="None" Max="360.0" Min="0.0" Default="360.0" Inc="1.0" Tooltip="" Row="0" Col="0" Page="0" DisplayName="Hue Steps" Type="float" Name="p_Hue">
+      </Uniform>
+      <Uniform ResDependent="None" Default="False" Tooltip="" Row="0" Col="1" Page="0" DisplayName="Hue Quantize" Type="bool" Name="t_Hue">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="512.0" Min="0.0" Default="512.0" Inc="1.0" Tooltip="" Row="1" Col="0" Page="0" DisplayName="Sat Steps" Type="float" Name="p_Sat">
+      </Uniform>
+      <Uniform ResDependent="None" Default="False" Tooltip="" Row="1" Col="1" Page="0" DisplayName="Sat Quantize" Type="bool" Name="t_Sat">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="256.0" Min="0.0" Default="256.0" Inc="1.0" Tooltip="" Row="2" Col="0" Page="0" DisplayName="Value Steps" Type="float" Name="p_Val">
+      </Uniform>
+      <Uniform ResDependent="None" Default="False" Tooltip="" Row="2" Col="1" Page="0" DisplayName="Value Quantize" Type="bool" Name="t_Val">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="512.0" Min="0.0" Default="512.0" Inc="1.0" Tooltip="" Row="3" Col="0" Page="0" DisplayName="Cr Steps" Type="float" Name="p_Cr">
+      </Uniform>
+      <Uniform ResDependent="None" Default="False" Tooltip="" Row="3" Col="1" Page="0" DisplayName="Cr Quantize" Type="bool" Name="t_Cr">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="512.0" Min="0.0" Default="512.0" Inc="1.0" Tooltip="" Row="4" Col="0" Page="0" DisplayName="Cb Steps" Type="float" Name="p_Cb">
+      </Uniform>
+      <Uniform ResDependent="None" Default="False" Tooltip="" Row="4" Col="1" Page="0" DisplayName="Cb Quantize" Type="bool" Name="t_Cb">
+      </Uniform>
+
+      <Uniform Row="7" Col="1" Page="0" Default="0" Inc="1" Tooltip="" Type="int" ChannelName="p_Method" DisplayName="Rounding Method" Name="p_Method" ValueType="Popup">
+        <PopupEntry Title="Standard" Value="0">
+        </PopupEntry>
+        <PopupEntry Title="Smooth 1" Value="1">
+        </PopupEntry>
+        <PopupEntry Title="Smooth 2 - Variable" Value="3">
+        </PopupEntry>
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="0.9" Min="0.0" Default="0.0" Inc="0.01" Tooltip="" Row="7" Col="0" Page="0" DisplayName="Smooth 2 - Smoothness" Type="float" Name="p_Smoothness">
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.0" Inc="0.01" Tooltip="" Row="8" Col="0" Page="0" DisplayName="Mix back" Type="float" Name="p_Mix">
+      </Uniform>
+
+   </Shader>
+</ShaderNodePreset>
