@@ -1,4 +1,4 @@
-// Tetrahedral color transformation in CIE XYZ inspired by Steve Yedlin
+// Tetrahedral color transformation inspired by Steve Yedlin
 // http://www.yedlin.net/DisplayPrepDemo/DispPrepDemoFollowup.html (at 14:30)
 // based on an implementation by calvinsilly with HSV controls by hotgluebanjo
 // https://github.com/calvinsilly/Tetrahedral-Interpolation

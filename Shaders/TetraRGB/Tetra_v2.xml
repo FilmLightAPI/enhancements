@@ -1,0 +1,73 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" Description="
+  Tetrahedral Interpolation" Name="Tetra v2" InputFilmLightColourSpace="FilmLight_Linear_EGamut" OutputFilmLightColourSpace="FilmLight_Linear_EGamut">
+
+   <Shader OutputBitDepth="Output" Index="1">
+      <Uniform Index="0" NoInput="Error" Tooltip="" DisplayName="front" Mipmaps="False" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST" Type="sampler2D" Name="front">
+      </Uniform>
+
+      <Uniform Inc="0.01" Row="0" Col="0" Page="0" IconType="None" Type="vec3" DisplayName="Red (r,g,b)" Name="red">
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+      </Uniform>
+
+      <Uniform Inc="0.01" Row="1" Col="0" Page="0" IconType="None" Type="vec3" DisplayName="Green (r,g,b)" Name="green">
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+      </Uniform>
+
+      <Uniform Inc="0.01" Row="2" Col="0" Page="0" IconType="None" Type="vec3" DisplayName="Blue (r,g,b)" Name="blue">
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="0.5" Min="-0.5" Default="0.0" Inc="0.01" Row="3" Col="0" Page="0" Type="float" DisplayName="Black" Name="black">
+      </Uniform>
+
+      <Uniform Inc="0.01" Row="0" Col="1" Page="0" IconType="None" Type="vec3" DisplayName="Cyan (r,g,b)" Name="cyan">
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+      </Uniform>
+
+      <Uniform Inc="0.01" Row="1" Col="1" Page="0" IconType="None" Type="vec3" DisplayName="Magenta (r,g,b)" Name="magenta">
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+      </Uniform>
+
+      <Uniform Inc="0.01" Row="2" Col="1" Page="0" IconType="None" Type="vec3" DisplayName="Yellow (r,g,b)" Name="yellow">
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="1.0">
+        </SubUniform>
+        <SubUniform ResDependent="None" Max="2.0" Min="-1.0" Default="0.0">
+        </SubUniform>
+      </Uniform>
+
+      <Uniform ResDependent="None" Max="2.0" Min="0.0" Default="1.0" Inc="0.01" Row="3" Col="1" Page="0" Type="float" DisplayName="White" Name="white">
+      </Uniform>
+
+   </Shader>
+   <Page Name="Controls" Page="0">
+      <Col Name="" Col="0" Page="0">
+      </Col>
+   </Page>
+</ShaderNodePreset>
