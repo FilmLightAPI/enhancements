@@ -6,6 +6,8 @@ For a user-friendly browsing experience, visit:
 
 [https://filmlightapi.github.io/web/](https://filmlightapi.github.io/web/)
 
+This free directory of community-generated enhancements is maintained by FilmLight but provided without warranty or support.
+
 ## How to Contribute
 
 To contribute, please submit a Pull Request to the GitHub repository.
@@ -15,7 +17,7 @@ To contribute, please submit a Pull Request to the GitHub repository.
 2. Add Your Content: Create a new sub-folder with the name of your enhancement. Inside that folder, you must include a `README.md` file. You can optionally include a `icon.png` file for the icon on the main page. It should be a square PNG (e.g. 128 x 128 or 64 x 64 pixels)
 
     README format:
-    - The first line of the README should be a a first-level heading with the name of your enhancemnt
+    - The first line of the README should be a first-level heading with the name of your enhancemnt
     - The second line should be a short one-sentence description that will also appear on the directory pages (use 15 words or less)
     - Below that you can use any text. To include a screenshot, name the file "screenshot-1.jpg" and refer to it with: `![Screenshot](screenshot-1.jpg)`
     
