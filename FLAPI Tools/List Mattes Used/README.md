@@ -4,7 +4,7 @@ Generate a list of EXR matte channels used in a scene.
 
 ## How To Use
 
-Ensure the FLAPI module is part of your Python enviroment (see [FLAPI documnetation](https://www.filmlight.ltd.uk/support/documents/filmlightapi/docs_api.php)). It teminal run:
+Ensure the FLAPI module is part of your Python enviroment (see [FLAPI documnetation](https://www.filmlight.ltd.uk/support/documents/filmlightapi/docs_api.php)). In teminal run:
 
 `python3 getMattes.py <host:job:scene>`
 
