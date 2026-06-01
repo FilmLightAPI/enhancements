@@ -12,6 +12,8 @@ Basic FLAPI examples for Baselight/Daylight GUI writen in Python
 - **nested_menu_items.py** An example of nested menus
 - **progress_bar.py** Displays a ProgressBar triggered by a MenuItem
 - **select_scene_and_open.py** shows a dialog with a scene picker, then opens the selected scene in the Baselight timeline (requires 7.0.1 or later).
+- **dynamic_dialog_with_background_process.py** A DynamicDialog that validates input against a slow (fake) server without freezing the UI
+- **custom-queue-operation.zip** An app script and server script that run slow work in the background via a custom Queue Manager operation
 
 
 ## Installation
@@ -24,4 +26,5 @@ Restart Baselight or select *Views > Scripts > <span style="display:inline-block
 
 ## Changelog
 
+June 1, 2026 - Added dynamic_dialog_with_background_process.py and custom-queue-operation.zip\
 May 18, 2026 - Added select_scene_and_open.py
