@@ -8,3 +8,4 @@
 
 # build bits
 venv
+.venv
