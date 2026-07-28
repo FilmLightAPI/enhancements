@@ -1,6 +1,6 @@
 # Job Manager Template
 
-Create a new job folder with sub-folders based on a template.
+Create a new job folder with sub-folders based on a template
 
 ![Screenshot](screenshot-1.jpg)
 
