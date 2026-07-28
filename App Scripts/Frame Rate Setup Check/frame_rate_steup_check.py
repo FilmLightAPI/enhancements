@@ -23,7 +23,7 @@ def onSceneOpen(sender, signal, args):
     app = conn.Application.get()
 
     scene_string = app.get_current_scene_name()
-    if scene_string and "_" in scene_string:
+    if scene_string and "baselight_gallery" not in scene_string:
         try:
             scene = app.get_current_scene()
             scene_settings = scene.get_scene_settings()
