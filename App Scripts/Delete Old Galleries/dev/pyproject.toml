@@ -8,13 +8,8 @@ version="1.0.0"
 description="Delete Old Galleries for Baselight and Daylight"
 readme="README.md"
 dependencies=[
-    "importlib_metadata; python_version < '3.8'",
-    "requests",
-    "requests_unixsocket; python_version <= '3.6'",
-    "requests_unixsocket2; python_version >= '3.9'",
-    "urllib3",
 ]
-requires-python=">= 3.6"
+requires-python=">= 3.9"
 authors=[
     { name="FilmLight Ltd.", email="baselight-support@filmlight.ltd.uk" }
 ]

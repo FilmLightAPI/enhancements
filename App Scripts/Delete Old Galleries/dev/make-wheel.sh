@@ -5,4 +5,4 @@ if [ ! -d ./venv ]; then
 fi
 
 rm -f *.whl
-./venv/bin/python3 -m pip wheel --no-deps .
+./venv/bin/python3 -m pip wheel .
