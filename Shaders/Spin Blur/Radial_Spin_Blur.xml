@@ -1,0 +1,63 @@
+<ShaderNodePreset 
+  Name="Radial Spin Blur" 
+  Description="Radial blur, which spins around a center. 
+  The Falloff parameters control the size of the area in the center, which is less affected.
+  
+Parameters:
+  - Center (X/Y): Moves the focal point of the blur. The area around this point will remain sharp.
+  - Amount (Deg): The primary strength of the rotational blur, measured in degrees of rotation.
+  - Aspect Ratio: Stretches the shape of the sharp center.
+  - Falloff Radius: Controls the size of the sharp protected area in the center of the image.
+  - Falloff Softness: Controls the transition distance from the sharp center to the fully blurred edges. Higher values create a very gradual roll-off.
+  - Chroma Spread: Adds RGB color fringing to the blurred pixels. 
+  - Vignette Strength: Darkens the edges of the image based on the blur falloff.
+  - Pre-Blur Factor: Applies a pre-blur to the edges before rotating them, effectively reducing stepping artifacts.
+  - Samples: The number of rotational texture lookups. If you see individual steps or ghosts in the blur at high Amounts, increase this value to smooth them out (or increase the Pre-Blur Factor to save performance)."
+  Version="1.0"
+  InputFilmLightColourSpace="Rec709_lin" 
+  OutputFilmLightColourSpace="Rec709_lin"
+  SupportsAdaptiveDegradation="0" 
+  LimitInputsToTexture="True"
+  ShaderType="Matchbox">
+
+  <Shader OutputBitDepth="Output" Index="1">
+    <Uniform Index="0" NoInput="Error" Type="sampler2D" Name="frontTex" InputType="Front" DisplayName="Front" Mipmaps="False" GL_TEXTURE_MIN_FILTER="GL_LINEAR" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" />
+    <Uniform Type="vec2" Name="Center" DisplayName="Center" Row="0" Col="0" Page="0">
+       <SubUniform Default="0.5" Min="0.0" Max="1.0" Inc="0.01"/>
+       <SubUniform Default="0.5" Min="0.0" Max="1.0" Inc="0.01"/>
+    </Uniform>
+    <Uniform Type="float" Name="Amount" DisplayName="Amount (Deg)" Default="10.0" Min="0.0" Max="90.0" Inc="0.1" Row="1" Col="0" Page="0" />
+    <Uniform Type="float" Name="Aspect" DisplayName="Aspect Ratio" Default="1.0" Min="0.25" Max="5.0" Inc="0.01" Row="2" Col="0" Page="0" />
+    <Uniform Type="float" Name="FalloffRadius" DisplayName="Falloff Radius" Default="0.5" Min="0.0" Max="1.0" Inc="0.01" Row="3" Col="0" Page="0" />
+    <Uniform Type="float" Name="FalloffSoftness" DisplayName="Falloff Softness" Default="1.0" Min="0.001" Max="2.0" Inc="0.01" Row="4" Col="0" Page="0" />
+    <Uniform Type="float" Name="PreBlur" DisplayName="Pre-Blur Factor" Default="1.0" Min="0.0" Max="5.0" Inc="0.01" Row="2" Col="1" Page="0" />
+  </Shader>
+
+  <Shader OutputBitDepth="Output" Index="2">
+    <Uniform Type="vec2" Name="Center"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="Amount"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="Aspect"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="FalloffRadius"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="FalloffSoftness"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="PreBlur"><Duplicate/></Uniform>
+    <Uniform Type="sampler2D" Name="adsk_results_pass1" Mipmaps="False" GL_TEXTURE_MIN_FILTER="GL_LINEAR" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" />
+  </Shader>
+
+  <Shader OutputBitDepth="Output" Index="3">
+    <Uniform Type="vec2" Name="Center"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="Amount"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="Aspect"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="FalloffRadius"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="FalloffSoftness"><Duplicate/></Uniform>
+    <Uniform Type="float" Name="ChromaSpread" DisplayName="Chroma Spread" Default="0.3" Min="-1.0" Max="1.0" Inc="0.01" Row="0" Col="1" Page="0" />
+    <Uniform Type="float" Name="VignetteStrength" DisplayName="Vignette Strength" Default="0.25" Min="0.0" Max="1.0" Inc="0.01" Row="1" Col="1" Page="0" />
+    <Uniform Type="int" Name="Samples" DisplayName="Samples" Default="60" Min="2" Max="100" Inc="1" Row="3" Col="1" Page="0" />
+    <Uniform Type="sampler2D" Name="adsk_results_pass2" Mipmaps="False" GL_TEXTURE_MIN_FILTER="GL_LINEAR" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" />
+  </Shader>
+
+  <Page Name="Controls" Page="0">
+    <Col Name="Spin Setup" Col="0" Page="0"></Col>
+    <Col Name="Quality &amp; Color" Col="1" Page="0"></Col>
+  </Page>
+
+</ShaderNodePreset>
