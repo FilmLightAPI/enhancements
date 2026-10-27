@@ -1,0 +1,45 @@
+<ShaderNodePreset Name="Radial Blur" Description="Blurs around a centre point, simulating a zooming and/or rotating camera." Version="1.0" SupportsAdaptiveDegradation="0" LimitInputsToTexture="True">
+	<Shader OutputBitDepth="Output" Index="1">
+
+		<!-- Input -->
+    <Uniform Index="0" NoInput="Error" Type="sampler2D" Name="adsk_input1" InputType="Front" DisplayName="Front" Mipmaps="False" GL_TEXTURE_MIN_FILTER="GL_LINEAR" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" />
+
+		<!-- Blur Type -->
+		<Uniform Index="1" Name="blur_type" Type="int" DisplayName="Blur Type" ValueType="Popup" Default="1" Row="0" Col="0" Page="0" Tooltip="Box is fastest and least smooth; Gaussian is smoothest">
+			<PopupEntry Title="Box" Value="0"/>
+			<PopupEntry Title="Pyramid" Value="1" Default="True"/>
+			<PopupEntry Title="Gaussian" Value="2"/>
+		</Uniform>
+
+		<!-- Center: on-screen pick widget -->
+    <Uniform Type="vec2" Name="center" DisplayName="Center" Row="1" Col="0" Page="0" Tooltip="Centre of the blur. Drag the on-screen point in the viewer.">
+       <SubUniform Default="0.5" Min="0.0" Max="1.0" Inc="0.01"/>
+       <SubUniform Default="0.5" Min="0.0" Max="1.0" Inc="0.01"/>
+    </Uniform>
+
+		<!-- Radial Amount -->
+		<Uniform Index="3" Name="radial_amount" Type="float" DisplayName="Radial Amount" Default="20.0" Min="0.0" Max="200.0" Inc="0.1" Row="2" Col="0" Page="0" Tooltip="Zoom blur amount (percent)">
+		</Uniform>
+
+		<!-- Rotation Amount -->
+		<Uniform Index="4" Name="rotation_amount" Type="float" DisplayName="Rotation Amount" Default="0.0" Min="-360.0" Max="360.0" Inc="0.1" Row="3" Col="0" Page="0" Tooltip="Spin blur amount (degrees)">
+		</Uniform>
+
+		<!-- Falloff -->
+		<Uniform Index="5" Name="falloff" Type="float" DisplayName="Falloff" Default="25.0" Min="0.0" Max="200.0" Inc="0.1" Row="4" Col="0" Page="0" Tooltip="Softness of the transition from unblurred centre to blurred area. 0 = no ramp">
+		</Uniform>
+
+
+		<!-- Edge Mode -->
+		<Uniform Index="8" Name="edge_mode" Type="int" DisplayName="Edge Mode" ValueType="Popup" Default="1" Row="7" Col="0" Page="0" Tooltip="How the frame edges are handled">
+			<PopupEntry Title="Transparent" Value="0"/>
+			<PopupEntry Title="Repeat" Value="1"/>
+			<PopupEntry Title="Reflect" Value="2" Default="True"/>
+		</Uniform>
+
+	</Shader>
+
+	<Page Name="Radial Blur" Page="0">
+		<Col Name="Settings" Col="0" Page="0"/>
+	</Page>
+</ShaderNodePreset>
