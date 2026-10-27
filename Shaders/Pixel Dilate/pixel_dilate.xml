@@ -1,0 +1,42 @@
+<ShaderNodePreset
+  Name="Pixel Dilate"
+  Description="Pixel-radius dilate / erode with circle, square and diamond kernels"
+  SupportsAdaptiveDegradation="False"
+  LimitInputsToTexture="False"
+  MatteProvider="True">
+	<Shader OutputBitDepth="Output" Index="1">
+
+		<!-- Input -->
+		<Uniform Index="0" NoInput="Error" Tooltip="" DisplayName="Front" InputColor="Front" Type="sampler2D" Name="adsk_input1">
+		</Uniform>
+
+		<!-- Radius -->
+		<Uniform Index="1" Name="radius" Type="float" DisplayName="Radius" Default="0.0" Min="0.0" Max="64.0" Inc="0.1" Row="0" Col="0" Page="0" Tooltip="Kernel radius in pixels (max 64)">
+		</Uniform>
+
+		<!-- Mode -->
+		<Uniform Index="2" Name="mode" Type="int" DisplayName="Mode" ValueType="Popup" Default="0" Row="1" Col="0" Page="0" Tooltip="Dilate grows bright areas, Erode shrinks them">
+			<PopupEntry Title="Dilate" Value="0" Default="True"/>
+			<PopupEntry Title="Erode" Value="1"/>
+		</Uniform>
+
+		<!-- Shape -->
+		<Uniform Index="3" Name="shape" Type="int" DisplayName="Shape" ValueType="Popup" Default="0" Row="2" Col="0" Page="0" Tooltip="Kernel shape">
+			<PopupEntry Title="Circle" Value="0" Default="True"/>
+			<PopupEntry Title="Square" Value="1"/>
+			<PopupEntry Title="Diamond" Value="2"/>
+		</Uniform>
+
+		<!-- Channels -->
+		<Uniform Index="4" Name="channels" Type="int" DisplayName="Channels" ValueType="Popup" Default="0" Row="3" Col="0" Page="0" Tooltip="Which channels are processed">
+			<PopupEntry Title="RGBA" Value="0" Default="True"/>
+			<PopupEntry Title="RGB Only" Value="1"/>
+			<PopupEntry Title="Alpha Only" Value="2"/>
+		</Uniform>
+
+	</Shader>
+
+	<Page Name="Dilate" Page="0">
+		<Col Name="Settings" Col="0" Page="0"/>
+	</Page>
+</ShaderNodePreset>
