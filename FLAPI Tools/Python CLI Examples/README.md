@@ -20,6 +20,11 @@ Basic FLAPI examples for command-line tools writen in Python
 - **jobs.py** List all Jobs in the local database
 - **queue.py** Print information and status of the local render queue
 - **render_scene.py** Render a scene and wait for it to finish
+- **set_decode_params.py** List available RAW parameters and change some of them 
 - **scene_get_metadata.py** Print metadata for all shots in a scene
 - **scene_set_metadata.py** Change metadata values for shots in a scene
 - **template.py** Create a new scene from a scene template
+
+## Changelog
+
+November 6, 2026 - Added set_decode_params.py
