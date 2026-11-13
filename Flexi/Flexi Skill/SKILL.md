@@ -39,6 +39,7 @@ write a replacement or publish it.
 | `examples/gain` | The minimal effect. Start here. |
 | `examples/temporal-average` | Temporal inputs `[-1, 0, 1]`, missing frames at shot edges, RGBA with alpha carried through |
 | `examples/person-matte` | Model weights (downloaded, packaged, mmapped), normalised inputs, a matte output, VRAM measured and adapted to the grant |
+| `examples/point-matte` | A point param placed in the viewer, `fixed_image_size`, `transform_to_fixed`, `roi_sensitive` |
 | `examples/run-tool` | Wraps an existing command-line tool: images as files, a time limit, the tool's errors shown to the user |
 | `examples/cpp-invert` | A compiled C++ effect: the protocol by hand, shared memory, a universal macOS binary |
 
@@ -48,7 +49,8 @@ Read the one you need:
 
 - `references/protocol.md`: launch, methods, caching, logs, timeouts
 - `references/python-api.md`: `flexi.Effect`, the describe reply, I/O helpers
-- `references/params-ui.md`: params, pages, visibility, colour spaces
+- `references/params-ui.md`: params, pages, visibility, points and rects, colour spaces
+- `references/geometry.md`: rects, coordinates, `fixed_image_size`, `transform_to_fixed`, `roi_sensitive`
 - `references/manifest.md`: the `.flexi` file and its install section
 - `references/temporal.md`: frames around the current one
 - `references/vram.md`: declaring, measuring, adapting, releasing
@@ -86,8 +88,10 @@ Read the one you need:
 | Effect not in Baselight's menus | `fl-flexi check <id>`; schema errors; a required field missing (`identifier`, `version`, `label`, `description`, `type`, `licence`, `launch_command`); `type` must be `filter`, `source` or `multi_input`; Baselight restarted? |
 | Fails to start | Run the `launch_command` by hand in the installed folder to see import errors; then `fl-flexi-test` |
 | "Input format not defined" | Add `format` to the input |
+| "specifies an unknown input colour space" | `input_colour_space` must be a file name from `<app>/etc/colourspaces/`; `'Input'` and `'Auto'` only work in a `_colourspace_` param |
+| UI does not build | A param without `uilocation`; a simple param after a point, rect or list param |
 | Black output, or no output | Output `format` missing; planar/interleaved mismatch; wrong channel count in `open_output`; 4-D result to `write_output` |
-| Output shifted or cropped | Ignoring the `rect` of inputs and output |
+| Output shifted or cropped | Ignoring the `rect` of inputs and output; points used without subtracting the buffer's `left`/`top` (`references/geometry.md`) |
 | Baselight hangs on the effect | A reply that is not a JSON object with the message's integer `id` |
 | VRAM warnings, other effects failing | `min_mb`/`max_mb` too low, or `set_vram_limit` not freeing |
 | A change to a query method has no effect | Cached reply: restart the effect (or Baselight) |

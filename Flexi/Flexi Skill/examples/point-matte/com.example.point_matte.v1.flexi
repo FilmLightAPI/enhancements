@@ -1,0 +1,28 @@
+{
+    "flexi_effects_definition_v1": {
+        "effects": [
+            {
+                "identifier": "com.example.point_matte",
+                "version": 1,
+                "label": "Example Point Matte",
+                "short_label": "Point Matte",
+                "description": "A soft round matte around a point placed in the viewer, made at a fixed size.",
+                "licence": "LICENCE.md",
+                "type": "filter",
+                "launch_command": "./bin/python3 flexi_point_matte.py"
+            }
+        ],
+        "install": {
+            "all": {
+                "sources": {
+                    "flexi.py": "flexi.py",
+                    "flexi_point_matte.py": "flexi_point_matte.py",
+                    "LICENCE.md": "LICENCE.md"
+                }
+            },
+            "linux": { "flexi_platform": "pytorch-2.8" },
+            "macos": { "flexi_platform": "pytorch-2.8" },
+            "macos-intel": { "flexi_platform": "pytorch-2.2" }
+        }
+    }
+}

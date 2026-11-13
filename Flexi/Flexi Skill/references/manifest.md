@@ -45,7 +45,7 @@ by one process or by different launch commands. Name the file `<identifier>.v<ve
 | Field | Notes |
 |---|---|
 | `identifier` | Your reverse-domain name, stable across releases. Never `uk.ltd.filmlight.*`. |
-| `version` | Integer. Scenes store each effect's description: bump the version whenever params are added, removed, renamed or retyped, and keep the old version installed so existing scenes still render. |
+| `version` | Integer. Scenes store each effect's description: bump the version whenever params are added, removed, renamed, retyped or reordered, or a list's attributes change, and keep the old version installed so existing scenes still render. |
 | `label`, `short_label` | Shown in the UI |
 | `description` | Required |
 | `licence` | Required. A file in the effect folder (`LICENCE.md`), or the text itself. A single word with no space is always read as a file name, so write `"MIT licence"`, not `"MIT"`. Include the model's upstream licence. |

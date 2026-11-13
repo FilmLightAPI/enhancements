@@ -30,8 +30,9 @@ if __name__ == '__main__':
 | `setup_if_necessary(self, effect_id, gpu)` | Do not use | `flexi.py` also calls it straight after `describe_effect`, before any VRAM grant; load models in `run_generate` instead |
 | `shutdown(self)` | Optional | Clean-up before exit |
 
-`effect_id` is `(identifier, version)`; `instance` names the operator instance in the scene.
-`data` is described in `flexi_message_v1.schema`.
+`effect_id` is `(identifier, version)`. `instance` is an internal handle that changes between
+renders: do not use it to recognise an operator or a shot. `data` is described in
+`flexi_message_v1.schema`.
 
 Errors and warnings go in the reply:
 
@@ -39,6 +40,8 @@ Errors and warnings go in the reply:
 return flexi.error('Model file missing', path)              # fails the call, shown to the user
 return {'__LOG__': [{'level': 4, 'message': 'Low light', 'detail': ''}]}   # a warning
 ```
+
+A reply with `__LOG__` carries only the log: anything else in it, such as `metadata`, is dropped.
 
 An exception in a method becomes an "Internal error" reply. `flexi.py` sends Baselight only the
 exception and prints the traceback to the effect's output (see Logging in
@@ -57,9 +60,9 @@ return {
 ```
 
 **Inputs**: `name` (a C identifier), `label`, `type` (`'image'`), `format` (`3XFLOAT`, `1XFLOAT`
-for a matte, `4XFLOAT`), `planar`, `optional`, `is_matte`, `temporal` (frame offsets, see
-`references/temporal.md`), `normalise` (`{'mean': [...], 'std': [...]}`, applied by Baselight
-before the data reaches you).
+for a matte, `4XFLOAT`), `planar`,
+`optional`, `is_matte`, `temporal` (frame offsets, see `references/temporal.md`), `normalise`
+(`{'mean': [...], 'std': [...]}`, applied by Baselight before the data reaches you).
 
 **Outputs**: one entry with `name`, `label`, `type`, `format`, `planar`, and optionally
 `denormalise`. `'outputs': None` for an effect without an image output. In a `4XFLOAT` output the
@@ -73,17 +76,18 @@ Other keys:
 
 | Key | Use |
 |---|---|
-| `fixed_image_size` | `{'width', 'height', 'scaling': 'fit_inside'/'fill', 'position': 'centre'/'top_left', 'pad_value'}`: the effect always sees this size; Baselight scales in and out |
+| `fixed_image_size` | The effect always sees this size; Baselight scales in and out. See `references/geometry.md` |
 | `input_colour_space`, `output_colour_space` | Fixed colour spaces, see `references/params-ui.md` |
 | `local_methods` | Answers Baselight computes itself, see `references/protocol.md` |
-| `roi_sensitive` | `True` when the output changes with the area rendered (whole-frame models) |
+| `roi_sensitive` | `True` when the output depends on the whole frame (segmentation, depth, matting); see `references/geometry.md` |
 | `uipages` | Page (tab) names |
-| `help` | Help text; `*bold*` and backtick code are formatted |
+| `help` | Help text; `*bold*`, backtick code and `**highlight**` are formatted, `\` escapes |
 
 ## `run_generate` data
 
 `data` holds `params` (values at this frame, by name), `inputs` (keyed `'<name>:<offset>'`, e.g.
-`'src:0'`), `output`, `width`, `height`, `inputs_hash` and `metadata`. Each input and the
+`'src:0'`), `output`, `width`, `height`, `inputs_hash`, `metadata`, and with `fixed_image_size`
+`transform_to_fixed`. Each input and the
 output has a `rect` (`left`, `top`, `width`, `height`): the buffer covers that area only, which
 can be smaller or larger than the frame and can differ between input and output.
 
@@ -133,9 +137,10 @@ def run_generate(self, effect_id, instance, data):
 ## Rect helpers
 
 `union_rect`, `intersect_rect` (returns `'empty'` when they do not overlap), `extend_rect(rect,
-x, y)`, `transform_point`, `transform_rect`, `invert_transform`. Use `extend_rect` in
-`query_input_rects` when the model needs context around the output area (convolutions, tiling),
-or the `local_methods` shortcut.
+x, y)`, and `transform_point`, `transform_rect`, `invert_transform` for `transform_to_fixed`. Use
+`extend_rect` in `query_input_rects` when the model needs context around the output area
+(convolutions, tiling), or the `local_methods` shortcut. Rects, coordinates and fixed size:
+`references/geometry.md`.
 
 ## Loading weights
 

@@ -11,8 +11,11 @@ Baselight fail.
    `torch.cuda` calls, no `.to(device)` at import, in `__init__`, `describe_effect` or the
    query methods. Load the model in the first `run_generate`.
 2. **`query_vram_requirement` returns `min_mb` and `max_mb`** for the given width, height and
-   params. Both are required. `max_mb` is what the effect would like; `min_mb` is the least it can
-   still render with. Baselight grants a `limit_mb` between them, or less when memory is short.
+   params. `width` and `height` are the output buffer's size (the `fixed_image_size` in that
+   mode) or, when Baselight plans playback, the frame size; `n_in` counts input frames, temporal
+   ones included. Both values are required. `max_mb` is what the effect would like; `min_mb` is
+   the least it can still render with. Baselight grants a `limit_mb` between them, or less when
+   memory is short.
 3. **Stay within the grant.** The limit covers everything the effect process allocates on the
    GPU: weights, activations, temporaries, and on CUDA the context itself (several hundred MB
    that PyTorch's own counters do not show). It does not include the image buffers Baselight

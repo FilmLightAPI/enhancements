@@ -6,7 +6,7 @@ Flexi effects are programs, usually Python and PyTorch but any language, that Ba
 and drives to render frames. This skill gives a coding agent what it needs to write one from a
 plain-English request: the protocol, the `flexi.Effect` Python API, the `.flexi` manifest,
 params and UI, temporal inputs, model weights, VRAM, testing, and packaging for Linux, Apple
-silicon and Intel Macs, with five working examples. It is written for the Flexi tools in
+silicon and Intel Macs, with six working examples. It is written for the Flexi tools in
 Baselight 7.0.3.
 
 It uses the open [Agent Skills](https://agentskills.io) `SKILL.md` format, read by Claude Code,
@@ -56,6 +56,7 @@ included here.
 | `examples/gain` | The minimal effect |
 | `examples/temporal-average` | Temporal inputs and RGBA images |
 | `examples/person-matte` | Model weights, normalised input, matte output, VRAM that adapts to the grant |
+| `examples/point-matte` | A point placed in the viewer, a fixed processing size, mapping positions into it |
 | `examples/run-tool` | Wrapping an existing command-line tool, with images as files |
 | `examples/cpp-invert` | A compiled C++ effect using shared memory; native binaries and signing |
 

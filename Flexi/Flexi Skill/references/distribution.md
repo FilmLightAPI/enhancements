@@ -19,8 +19,8 @@ Every machine that renders the effect, the UI host and each render node, needs:
   etc.) on every machine, or bundled with the effect.
 - **The Flexi licence options** on the Baselight licence.
 
-`<flexi dir>` is `/vol/.support/flexi`: on macOS a link to `/Library/Application Support/FilmLight/flexi`,
-on Linux the same folder as `/usr/fl/flexi`.
+`<flexi dir>` is `/vol/.support/flexi`: on macOS a link to
+`/Library/Application Support/FilmLight/flexi`, on Linux the same folder as `/usr/fl/flexi`.
 
 ## One package per platform
 

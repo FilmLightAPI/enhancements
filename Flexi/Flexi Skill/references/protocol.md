@@ -30,7 +30,7 @@ Baselight started from the Dock or a service does not have your shell's `PATH`.
 | Method | Purpose | GPU allowed | Notes |
 |---|---|---|---|
 | `describe_effect_v1` | Process mode, inputs, outputs, params, UI | No | Fast. Cached until the `.flexi` changes or Baselight restarts. |
-| `query_input_rects_v1` | Input area needed for an output area | No | Only if listed in `supported_methods` (or `local_methods`); otherwise inputs cover the whole working area. Cached. |
+| `query_input_rects_v1` | Input area needed for an output area | No | Only if listed in `supported_methods` (or `local_methods`); otherwise each input covers the output's area. Cached. See `references/geometry.md` |
 | `query_output_rect_v1` | Output area producible from the inputs | No | As above |
 | `query_vram_requirement_v1` | `min_mb`, `max_mb` for these params and size | No | Both values required. Cached. |
 | `set_vram_limit_v1` | How much VRAM the effect may use | Yes, after it | Reply only once usage ≤ limit, or reply and exit (`'quit'`) |
@@ -67,6 +67,7 @@ message, not your output's name:
         'src': ['output', 16],                       # the output rect grown by 16 pixels
         'src2': ['output', 'radius'],                # grown by the value of the 'radius' param
         'matte': 'output',                           # the output rect itself
+        'ref': {'rect': {'left': 0, 'top': 0, 'width': 256, 'height': 256}},   # a fixed rect
     },
     'query_output_rect_v1': {'output': ['src:0', -5]},   # the src:0 rect shrunk by 5 pixels
 }
