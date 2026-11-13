@@ -26,6 +26,13 @@ Baselight fail.
    CUDA context, so on CUDA `'quit'` is the reliable answer to 0; on MPS, drop the model and
    call `torch.mps.empty_cache()`.
 
+## Effects that do not use the GPU
+
+An effect that runs entirely on the CPU (a CPU-only library, an external tool) still answers
+both methods: `query_vram_requirement` returns `{'min_mb': 0, 'max_mb': 0}` and
+`set_vram_limit` returns `{}`. Use `'process_mode': {'linux': 'shm', 'macos': 'shm'}`: it
+needs no CUDA.
+
 ## Measuring
 
 Measure; do not estimate. Run the effect's real inference path on the target GPU at the sizes

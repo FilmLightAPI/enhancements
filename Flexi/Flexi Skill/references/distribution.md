@@ -142,16 +142,19 @@ clear the flag after unpacking: `sudo xattr -dr com.apple.quarantine "$FLEXI_DIR
   with a separate UI host, run `fl-install-flexi-effect` and `fl-flexi` on the node: they refuse
   to run on the UI host.
 - Check: `fl-flexi check com.yourstudio.my_effect --full` (fl-diag runs the same tests and a
-  few more: `references/testing.md`, step 8), then restart Baselight.
+  few more: `references/testing.md`, step 8), then restart Baselight, or use the reload button
+  ("Reload effects") in the Choose Flexi Effect dialog.
 - List what is installed: `fl-flexi` prints every installed effect with its version, package
   build, platform and folder.
 - Before moving a scene that uses the effect to another machine or site:
   `fl-flexi scene <host:job:scene> --check` lists the Flexi effects the scene needs, how often
   each is used, and whether each is installed and intact on this machine.
 - Find it: `filter` effects are in the layer operator list and the Flexi Effect strip, `source`
-  effects in Flexi Source, `multi_input` effects in the Flexi Effect strip only. When several
-  versions are installed, Baselight lists only the newest unless the user turns off
-  "hide older versions".
+  effects in Flexi Source, `multi_input` effects in the Flexi Effect strip only. An effect whose
+  output is a `1XFLOAT` matte is used as a layer's matte: in a grade layer's Matte tab, choose
+  Flexi Effect under Matte Operators. As a Flexi Effect strip, its matte replaces the picture.
+  When several versions are installed, Baselight lists only the newest unless the user turns
+  off "hide older versions".
 - Update the same version in place for fixes that do not change params or results.
 - Bump `version` in the manifest (`my_effect.v2.flexi`) when params change or results change
   visibly, and install it beside v1: scenes graded with v1 keep using v1.

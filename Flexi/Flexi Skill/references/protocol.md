@@ -80,7 +80,9 @@ Any reply may include `log`: a list of `{level, message, detail}`, levels as sys
 the user. Other levels are only written to the log.
 
 Everything the effect prints, and every log entry, appears in the output of the Baselight process
-that launched it, prefixed `Flexi <identifier> v<version>:`.
+that launched it, prefixed `Flexi <identifier> v<version>:`. Libraries that print start-up
+messages to stderr (TensorFlow Lite, MediaPipe, ONNX Runtime and others) fill that log on every
+launch: turn their logging down in the effect.
 
 ## Process modes
 

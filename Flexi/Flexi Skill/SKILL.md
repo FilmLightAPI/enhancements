@@ -66,7 +66,8 @@ Read the one you need:
 - **Query methods answer at once** and give the same reply to the same message: Baselight caches
   them. No model loading, no network, no `torch.cuda` calls.
 - **`query_vram_requirement` returns `min_mb` and `max_mb`, measured**, covering everything the
-  process allocates on the GPU (on CUDA, the context too).
+  process allocates on the GPU (on CUDA, the context too). An effect that never uses the GPU
+  returns 0 for both.
 - **`set_vram_limit` frees memory before replying**, or returns `'quit'`. On CUDA, answer 0 with
   `'quit'`.
 - **Give every input and output a `format`** (`3XFLOAT`, `1XFLOAT`, `4XFLOAT`): Baselight
