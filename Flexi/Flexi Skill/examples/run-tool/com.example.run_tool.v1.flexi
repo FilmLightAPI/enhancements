@@ -1,0 +1,29 @@
+{
+    "flexi_effects_definition_v1": {
+        "effects": [
+            {
+                "identifier": "com.example.run_tool",
+                "version": 1,
+                "label": "Example Run Tool",
+                "short_label": "Run Tool",
+                "description": "Runs a command-line tool on each frame, through image files.",
+                "licence": "LICENCE.md",
+                "type": "filter",
+                "launch_command": "./bin/python3 flexi_run_tool.py"
+            }
+        ],
+        "install": {
+            "all": {
+                "sources": {
+                    "flexi.py": "flexi.py",
+                    "flexi_run_tool.py": "flexi_run_tool.py",
+                    "tool": "tool",
+                    "LICENCE.md": "LICENCE.md"
+                }
+            },
+            "linux": { "flexi_platform": "pytorch-2.8" },
+            "macos": { "flexi_platform": "pytorch-2.8" },
+            "macos-intel": { "flexi_platform": "pytorch-2.2" }
+        }
+    }
+}

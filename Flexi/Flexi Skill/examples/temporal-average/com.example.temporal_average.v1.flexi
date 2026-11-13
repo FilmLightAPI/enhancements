@@ -1,0 +1,28 @@
+{
+    "flexi_effects_definition_v1": {
+        "effects": [
+            {
+                "identifier": "com.example.temporal_average",
+                "version": 1,
+                "label": "Example Temporal Average",
+                "short_label": "Temporal Average",
+                "description": "Averages each frame with its neighbours, alpha included. Shows temporal inputs and RGBA images.",
+                "licence": "LICENCE.md",
+                "type": "filter",
+                "launch_command": "./bin/python3 flexi_temporal_average.py"
+            }
+        ],
+        "install": {
+            "all": {
+                "sources": {
+                    "flexi.py": "flexi.py",
+                    "flexi_temporal_average.py": "flexi_temporal_average.py",
+                    "LICENCE.md": "LICENCE.md"
+                }
+            },
+            "linux": { "flexi_platform": "pytorch-2.8" },
+            "macos": { "flexi_platform": "pytorch-2.8" },
+            "macos-intel": { "flexi_platform": "pytorch-2.2" }
+        }
+    }
+}

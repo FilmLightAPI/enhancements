@@ -1,0 +1,28 @@
+{
+    "flexi_effects_definition_v1": {
+        "effects": [
+            {
+                "identifier": "com.example.gain",
+                "version": 1,
+                "label": "Example Gain",
+                "short_label": "Gain",
+                "description": "Multiplies the image by a constant. Template for new Flexi effects.",
+                "licence": "LICENCE.md",
+                "type": "filter",
+                "launch_command": "./bin/python3 flexi_gain.py"
+            }
+        ],
+        "install": {
+            "all": {
+                "sources": {
+                    "flexi.py": "flexi.py",
+                    "flexi_gain.py": "flexi_gain.py",
+                    "LICENCE.md": "LICENCE.md"
+                }
+            },
+            "linux": { "flexi_platform": "pytorch-2.8" },
+            "macos": { "flexi_platform": "pytorch-2.8" },
+            "macos-intel": { "flexi_platform": "pytorch-2.2" }
+        }
+    }
+}

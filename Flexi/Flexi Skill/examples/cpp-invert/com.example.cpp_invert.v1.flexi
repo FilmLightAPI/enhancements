@@ -1,0 +1,24 @@
+{
+    "flexi_effects_definition_v1": {
+        "effects": [
+            {
+                "identifier": "com.example.cpp_invert",
+                "version": 1,
+                "label": "Example Invert (C++)",
+                "short_label": "Invert",
+                "description": "Inverts the image. A Flexi effect written in C++, using shared memory.",
+                "licence": "LICENCE.md",
+                "type": "filter",
+                "launch_command": "./flexi_invert"
+            }
+        ],
+        "install": {
+            "all": {
+                "sources": {
+                    "flexi_invert": "flexi_invert",
+                    "LICENCE.md": "LICENCE.md"
+                }
+            }
+        }
+    }
+}

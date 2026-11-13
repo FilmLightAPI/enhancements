@@ -1,0 +1,31 @@
+{
+    "flexi_effects_definition_v1": {
+        "effects": [
+            {
+                "identifier": "com.example.person_matte",
+                "version": 1,
+                "label": "Example Person Matte",
+                "short_label": "Person Matte",
+                "description": "Makes a soft matte of people. Shows model weights, normalised inputs and VRAM handling.",
+                "licence": "LICENCE.md",
+                "type": "filter",
+                "launch_command": "./bin/python3 flexi_person_matte.py"
+            }
+        ],
+        "install": {
+            "all": {
+                "sources": {
+                    "flexi.py": "flexi.py",
+                    "flexi_person_matte.py": "flexi_person_matte.py",
+                    "LICENCE.md": "LICENCE.md"
+                },
+                "weights": {
+                    "weights/deeplabv3_mobilenet_v3_large.pth": "weights/deeplabv3_mobilenet_v3_large.pth"
+                }
+            },
+            "linux": { "flexi_platform": "pytorch-2.8" },
+            "macos": { "flexi_platform": "pytorch-2.8" },
+            "macos-intel": { "flexi_platform": "pytorch-2.2" }
+        }
+    }
+}
