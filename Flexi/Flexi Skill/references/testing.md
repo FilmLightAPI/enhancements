@@ -76,7 +76,7 @@ It runs up to three passes:
 
 Non-Python effects have no venv: run the harness with the platform's Python
 (`<flexi dir>/platforms/<platform>/bin/python3`: `pytorch-2.8`, or `pytorch-2.2` on an Intel Mac). The harness drives `shm` and
-`cuda_ipc` effects only: test `file`-mode effects in Baselight.
+`cuda_ipc` effects only: test `file`-mode effects in Baselight, and see step 8.
 
 ## 4. Check the output, not just the run
 
@@ -115,3 +115,25 @@ and check that:
 
 The effect's output and `log` entries appear in the output of the Baselight process that started
 it (launch Baselight from a terminal to see them, or look in the Baselight logs).
+
+## 8. `fl-flexi check` and fl-diag
+
+Once the effect is in the Flexi directory, Baselight's diagnostics test it along with FilmLight's
+effects: fl-diag's "Flexi effects integrity" and "Flexi effects full test" run on every installed
+effect, and the site's diag report shows yours as FAIL if it does not pass. Before shipping, run:
+
+```bash
+fl-flexi check com.yourstudio.my_effect          # files, Python and venv, describe_effect
+fl-flexi check com.yourstudio.my_effect --full   # then fl-flexi-test and test_effect
+```
+
+`--full` runs `fl-flexi-test` on random noise (`--synthetic`) at 1920x1080 and 3840x2160, so the
+effect must run on noise at UHD with the weights it was installed with, not ones fetched on first
+use. fl-diag runs the same tests and also:
+
+- checks the manifest against the schema: run the validator (`references/manifest.md`)
+- checks every reply against the schema: step 3's command with `--synthetic`
+- on Linux, fails an effect that uses GPU memory during `describe_effect`
+
+In 7.0.3 the full test cannot drive `file`-mode effects: they show FAIL ("Unsupported process
+mode: file") even when they render correctly in Baselight. Tell your users to expect it.

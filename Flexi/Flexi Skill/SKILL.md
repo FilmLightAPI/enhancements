@@ -19,8 +19,8 @@ as shared memory (macOS), CUDA buffers (Linux) or image files. Most effects are 
    | Protocol overview | `<app>/doc/FlexiEffects.md` |
    | Schemas: manifest, messages, replies | `<app>/etc/flexi_*_v1.schema` |
    | Test harness, schema validator | `<app>/share/flexi/fl-flexi-test.py`, `flexi_validate.py` |
-   | Tools | `<app>/bin/fl-install-flexi-effect`, `fl-make-flexi-package`, `fl-flexi` |
-   | Flexi directory | `/Library/Application Support/FilmLight/flexi` (macOS), `/usr/fl/flexi` (Linux) |
+   | Tools | `<app>/bin/fl-install-flexi-effect`, `fl-make-flexi-package`, `fl-flexi` (list, `check [--full]`, `remove`, `scene`; `-h` for usage) |
+   | Flexi directory | `/vol/.support/flexi` (on macOS a link to `/Library/Application Support/FilmLight/flexi`) |
    | `flexi.py` | in any installed effect: `<flexi dir>/effects/*/flexi.py` |
    | Platforms (Python + PyTorch) | `<flexi dir>/platforms/` |
 
@@ -82,6 +82,7 @@ Read the one you need:
 
 | Symptom | First check |
 |---|---|
+| fl-diag shows the effect as FAIL | Run the same checks yourself: `references/testing.md`, step 8. In 7.0.3 `file`-mode effects always fail its full test |
 | Effect not in Baselight's menus | `fl-flexi check <id>`; schema errors; a required field missing (`identifier`, `version`, `label`, `description`, `type`, `licence`, `launch_command`); `type` must be `filter`, `source` or `multi_input`; Baselight restarted? |
 | Fails to start | Run the `launch_command` by hand in the installed folder to see import errors; then `fl-flexi-test` |
 | "Input format not defined" | Add `format` to the input |

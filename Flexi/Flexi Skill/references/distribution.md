@@ -19,8 +19,8 @@ Every machine that renders the effect, the UI host and each render node, needs:
   etc.) on every machine, or bundled with the effect.
 - **The Flexi licence options** on the Baselight licence.
 
-`<flexi dir>` is `/Library/Application Support/FilmLight/flexi` on macOS and `/usr/fl/flexi`
-(also `/vol/.support/flexi`) on Linux.
+`<flexi dir>` is `/vol/.support/flexi`: on macOS a link to `/Library/Application Support/FilmLight/flexi`,
+on Linux the same folder as `/usr/fl/flexi`.
 
 ## One package per platform
 
@@ -141,7 +141,13 @@ clear the flag after unpacking: `sudo xattr -dr com.apple.quarantine "$FLEXI_DIR
   `fl-install-flexi-effect -t <flexi dir> com.yourstudio.my_effect.v1.flexi`. On a system
   with a separate UI host, run `fl-install-flexi-effect` and `fl-flexi` on the node: they refuse
   to run on the UI host.
-- Check: `fl-flexi check com.yourstudio.my_effect`, then restart Baselight.
+- Check: `fl-flexi check com.yourstudio.my_effect --full` (fl-diag runs the same tests and a
+  few more: `references/testing.md`, step 8), then restart Baselight.
+- List what is installed: `fl-flexi` prints every installed effect with its version, package
+  build, platform and folder.
+- Before moving a scene that uses the effect to another machine or site:
+  `fl-flexi scene <host:job:scene> --check` lists the Flexi effects the scene needs, how often
+  each is used, and whether each is installed and intact on this machine.
 - Find it: `filter` effects are in the layer operator list and the Flexi Effect strip, `source`
   effects in Flexi Source, `multi_input` effects in the Flexi Effect strip only. When several
   versions are installed, Baselight lists only the newest unless the user turns off

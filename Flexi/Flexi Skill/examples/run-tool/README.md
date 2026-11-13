@@ -39,4 +39,6 @@ For a tool that needs neighbouring frames, declare `temporal` offsets on the inp
 ## Testing
 
 `fl-flexi-test.py` does not drive `file`-mode effects. Test the tool on its own on an image file,
-then install the effect and render a frame in Baselight (see `references/testing.md`).
+then install the effect and render a frame in Baselight (see `references/testing.md`). For the
+same reason, in 7.0.3 `fl-flexi check --full` and fl-diag's "Flexi effects full test" report this
+effect as FAIL ("Unsupported process mode: file") although it renders correctly.
